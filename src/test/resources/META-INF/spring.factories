@@ -1,0 +1,6 @@
+org.springframework.test.context.ContextCustomizerFactory = \
+    io.hank.twentyonepoints.config.\
+    SqlTestContainersSpringContextCustomizerFactory,io.hank.twentyonepoints.\
+    config.TestContainersSpringContextCustomizerFactory,io.hank.twentyonepoints.\
+    config.RedisTestContainersSpringContextCustomizerFactory,io.hank.\
+    twentyonepoints.config.KafkaTestContainersSpringContextCustomizerFactory
