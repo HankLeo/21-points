@@ -28,7 +28,7 @@ Congratulations! You've selected an excellent way to secure your JHipster applic
 
 To log in to your app, you'll need to have [Keycloak](https://keycloak.org) up and running. The JHipster Team has created a Docker container for you that has the default users and roles. Start Keycloak using the following command.
 
-```
+```shell
 docker compose -f src/main/docker/keycloak.yml up
 ```
 
@@ -164,7 +164,7 @@ jhipster:
 
 Before running Cypress tests, specify Auth0 user credentials by overriding the `CYPRESS_E2E_USERNAME` and `CYPRESS_E2E_PASSWORD` environment variables.
 
-```
+```shell
 export CYPRESS_E2E_USERNAME="<your-username>"
 export CYPRESS_E2E_PASSWORD="<your-password>"
 ```
@@ -174,10 +174,12 @@ See Cypress' documentation for setting OS [environment variables](https://docs.c
 **Auth0 requires a user to provide authorization consent on the first login.** Consent flow is currently not handled in the Cypress test suite. To mitigate the issue, you can use a user account that has already granted consent to authorize application access via interactive login.
 The build system will install automatically the recommended version of Node and npm.
 
+### Local Dev Env
+
 We provide a wrapper to launch npm.
 You will only need to run this command when dependencies change in [package.json](package.json).
 
-```
+```shell
 ./npmw install
 ```
 
@@ -186,7 +188,7 @@ We use npm scripts and [Webpack][] as our build system.
 If you are using redis as a cache, you will have to launch a cache server.
 To start your cache server, run:
 
-```
+```shell
 docker compose -f src/main/docker/redis.yml up -d
 ```
 
@@ -203,10 +205,22 @@ See [here](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-f
 **WARNING**: If you're using the second level Hibernate cache and disabling the Spring cache, you have to disable the second level Hibernate cache as well since they are using
 the same CacheManager.
 
+Run the following commands to start ElasticSearch server.
+
+```shell
+docker compose -f src/main/docker/elasticsearch.yml up -d
+```
+
+Run the following commands to start Kafka server.
+
+```shell
+docker compose -f src/main/docker/kafka.yml up -d
+```
+
 Run the following commands in two separate terminals to create a blissful development experience where your browser
 auto-refreshes when files change on your hard drive.
 
-```
+```shell
 ./gradlew -x webapp
 ./npmw start
 ```
@@ -239,13 +253,13 @@ Note: [Workbox](https://developers.google.com/web/tools/workbox/) powers JHipste
 
 For example, to add [Leaflet][] library as a runtime dependency of your application, you would run following command:
 
-```
+```shell
 ./npmw install --save --save-exact leaflet
 ```
 
 To benefit from TypeScript type definitions from [DefinitelyTyped][] repository in development, you would run following command:
 
-```
+```shell
 ./npmw install --save-dev --save-exact @types/leaflet
 ```
 
@@ -260,14 +274,14 @@ For further instructions on how to develop with JHipster, have a look at [Using 
 
 To build the final jar and optimize the TwentyOnePoints application for production, run:
 
-```
+```shell
 ./gradlew -Pprod clean bootJar
 ```
 
 This will concatenate and minify the client CSS and JavaScript files. It will also modify `index.html` so it references these new files.
 To ensure everything worked, run:
 
-```
+```shell
 java -jar build/libs/*.jar
 ```
 
@@ -279,7 +293,7 @@ Refer to [Using JHipster in production][] for more details.
 
 To package your application as a war in order to deploy it to an application server, run:
 
-```
+```shell
 ./gradlew -Pprod -Pwar clean bootWar
 ```
 
@@ -287,7 +301,7 @@ To package your application as a war in order to deploy it to an application ser
 
 JHipster Control Center can help you manage and control your application(s). You can start a local control center server (accessible on http://localhost:7419) with:
 
-```
+```shell
 docker compose -f src/main/docker/jhipster-control-center.yml up
 ```
 
@@ -297,7 +311,7 @@ docker compose -f src/main/docker/jhipster-control-center.yml up
 
 To launch your application's tests, run:
 
-```
+```shell
 ./gradlew test integrationTest jacocoTestReport
 ```
 
@@ -305,7 +319,7 @@ To launch your application's tests, run:
 
 Unit tests are run by [Jest][]. They're located in [src/test/javascript/](src/test/javascript/) and can be run with:
 
-```
+```shell
 ./npmw test
 ```
 
@@ -324,7 +338,7 @@ The lighthouse report is created in `build/cypress/lhreport.html`
 
 Sonar is used to analyse code quality. You can start a local Sonar server (accessible on http://localhost:9001) with:
 
-```
+```shell
 docker compose -f src/main/docker/sonar.yml up -d
 ```
 
@@ -334,13 +348,13 @@ You can run a Sonar analysis with using the [sonar-scanner](https://docs.sonarqu
 
 Then, run a Sonar analysis:
 
-```
+```shell
 ./gradlew -Pprod clean check jacocoTestReport sonarqube -Dsonar.login=admin -Dsonar.password=admin
 ```
 
 Additionally, Instead of passing `sonar.password` and `sonar.login` as CLI arguments, these parameters can be configured from [sonar-project.properties](sonar-project.properties) as shown below:
 
-```
+```properties
 sonar.login=admin
 sonar.password=admin
 ```
@@ -353,13 +367,13 @@ JHipster generates a number of Docker Compose configuration files in the [src/ma
 
 For example, to start required services in Docker containers, run:
 
-```
+```shell
 docker compose -f src/main/docker/services.yml up -d
 ```
 
 To stop and remove the containers, run:
 
-```
+```shell
 docker compose -f src/main/docker/services.yml down
 ```
 
@@ -376,19 +390,19 @@ spring:
 You can also fully dockerize your application and all the services that it depends on.
 To achieve this, first build a Docker image of your app by running:
 
-```sh
+```shell
 npm run java:docker
 ```
 
 Or build a arm64 Docker image when using an arm64 processor os like MacOS with M1 processor family running:
 
-```sh
+```shell
 npm run java:docker:arm64
 ```
 
 Then run:
 
-```sh
+```shell
 docker compose -f src/main/docker/app.yml up -d
 ```
 
