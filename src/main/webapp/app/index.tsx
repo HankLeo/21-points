@@ -23,14 +23,14 @@ const rootEl = document.getElementById('root');
 const root = createRoot(rootEl);
 
 const render = Component =>
-  root.render(
-    <ErrorBoundary>
-      <Provider store={store}>
-        <div>
-          <Component />
-        </div>
-      </Provider>
-    </ErrorBoundary>,
-  );
+    root.render(
+        <ErrorBoundary>
+            <Provider store={store}>
+                <div>
+                    <Component />
+                </div>
+            </Provider>
+        </ErrorBoundary>,
+    );
 
 render(AppComponent);

@@ -8,14 +8,14 @@ import notificationMiddleware from './notification-middleware';
 import loggerMiddleware from './logger-middleware';
 
 const store = configureStore({
-  reducer: sharedReducers,
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        // Ignore these field paths in all actions
-        ignoredActionPaths: ['meta.arg', 'meta.baseQueryMeta', 'payload.config', 'payload.request', 'payload.headers', 'error'],
-      },
-    }).concat(errorMiddleware, notificationMiddleware, loadingBarMiddleware(), loggerMiddleware),
+    reducer: sharedReducers,
+    middleware: getDefaultMiddleware =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                // Ignore these field paths in all actions
+                ignoredActionPaths: ['meta.arg', 'meta.baseQueryMeta', 'payload.config', 'payload.request', 'payload.headers', 'error'],
+            },
+        }).concat(errorMiddleware, notificationMiddleware, loadingBarMiddleware(), loggerMiddleware),
 });
 
 const getStore = () => store;

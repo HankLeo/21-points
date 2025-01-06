@@ -15,36 +15,36 @@ import { AUTHORITIES } from 'app/config/constants';
 const loading = <div>loading ...</div>;
 
 const Admin = Loadable({
-  loader: () => import(/* webpackChunkName: "administration" */ 'app/modules/administration'),
-  loading: () => loading,
+    loader: () => import(/* webpackChunkName: "administration" */ 'app/modules/administration'),
+    loading: () => loading,
 });
 const AppRoutes = () => {
-  return (
-    <div className="view-routes">
-      <ErrorBoundaryRoutes>
-        <Route index element={<Home />} />
-        <Route path="logout" element={<Logout />} />
-        <Route
-          path="admin/*"
-          element={
-            <PrivateRoute hasAnyAuthorities={[AUTHORITIES.ADMIN]}>
-              <Admin />
-            </PrivateRoute>
-          }
-        />
-        <Route path="sign-in" element={<LoginRedirect />} />
-        <Route
-          path="*"
-          element={
-            <PrivateRoute hasAnyAuthorities={[AUTHORITIES.USER]}>
-              <EntitiesRoutes />
-            </PrivateRoute>
-          }
-        />
-        <Route path="*" element={<PageNotFound />} />
-      </ErrorBoundaryRoutes>
-    </div>
-  );
+    return (
+        <div className="view-routes">
+            <ErrorBoundaryRoutes>
+                <Route index element={<Home />} />
+                <Route path="logout" element={<Logout />} />
+                <Route
+                    path="admin/*"
+                    element={
+                        <PrivateRoute hasAnyAuthorities={[AUTHORITIES.ADMIN]}>
+                            <Admin />
+                        </PrivateRoute>
+                    }
+                />
+                <Route path="sign-in" element={<LoginRedirect />} />
+                <Route
+                    path="*"
+                    element={
+                        <PrivateRoute hasAnyAuthorities={[AUTHORITIES.USER]}>
+                            <EntitiesRoutes />
+                        </PrivateRoute>
+                    }
+                />
+                <Route path="*" element={<PageNotFound />} />
+            </ErrorBoundaryRoutes>
+        </div>
+    );
 };
 
 export default AppRoutes;

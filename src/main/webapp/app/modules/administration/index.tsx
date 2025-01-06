@@ -9,15 +9,15 @@ import Configuration from './configuration/configuration';
 import Docs from './docs/docs';
 
 const AdministrationRoutes = () => (
-  <div>
-    <ErrorBoundaryRoutes>
-      <Route path="health" element={<Health />} />
-      <Route path="metrics" element={<Metrics />} />
-      <Route path="configuration" element={<Configuration />} />
-      <Route path="logs" element={<Logs />} />
-      <Route path="docs" element={<Docs />} />
-    </ErrorBoundaryRoutes>
-  </div>
+    <div>
+        <ErrorBoundaryRoutes>
+            <Route path="health" element={<Health />} />
+            <Route path="metrics" element={<Metrics />} />
+            <Route path="configuration" element={<Configuration />} />
+            <Route path="logs" element={<Logs />} />
+            <Route path="docs" element={<Docs />} />
+        </ErrorBoundaryRoutes>
+    </div>
 );
 
 export default AdministrationRoutes;

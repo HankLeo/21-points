@@ -1,10 +1,10 @@
 export const AUTHORITIES = {
-  ADMIN: 'ROLE_ADMIN',
-  USER: 'ROLE_USER',
+    ADMIN: 'ROLE_ADMIN',
+    USER: 'ROLE_USER',
 };
 
 export const messages = {
-  DATA_ERROR_ALERT: 'Internal Error',
+    DATA_ERROR_ALERT: 'Internal Error',
 };
 
 export const APP_DATE_FORMAT = 'DD/MM/YY HH:mm';

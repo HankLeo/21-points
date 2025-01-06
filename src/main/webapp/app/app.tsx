@@ -20,46 +20,46 @@ import AppRoutes from 'app/routes';
 const baseHref = document.querySelector('base').getAttribute('href').replace(/\/$/, '');
 
 export const App = () => {
-  const dispatch = useAppDispatch();
+    const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    dispatch(getSession());
-    dispatch(getProfile());
-  }, []);
+    useEffect(() => {
+        dispatch(getSession());
+        dispatch(getProfile());
+    }, []);
 
-  const currentLocale = useAppSelector(state => state.locale.currentLocale);
-  const isAuthenticated = useAppSelector(state => state.authentication.isAuthenticated);
-  const isAdmin = useAppSelector(state => hasAnyAuthority(state.authentication.account.authorities, [AUTHORITIES.ADMIN]));
-  const ribbonEnv = useAppSelector(state => state.applicationProfile.ribbonEnv);
-  const isInProduction = useAppSelector(state => state.applicationProfile.inProduction);
-  const isOpenAPIEnabled = useAppSelector(state => state.applicationProfile.isOpenAPIEnabled);
+    const currentLocale = useAppSelector(state => state.locale.currentLocale);
+    const isAuthenticated = useAppSelector(state => state.authentication.isAuthenticated);
+    const isAdmin = useAppSelector(state => hasAnyAuthority(state.authentication.account.authorities, [AUTHORITIES.ADMIN]));
+    const ribbonEnv = useAppSelector(state => state.applicationProfile.ribbonEnv);
+    const isInProduction = useAppSelector(state => state.applicationProfile.inProduction);
+    const isOpenAPIEnabled = useAppSelector(state => state.applicationProfile.isOpenAPIEnabled);
 
-  const paddingTop = '60px';
-  return (
-    <BrowserRouter basename={baseHref}>
-      <div className="app-container" style={{ paddingTop }}>
-        <ToastContainer position="top-left" className="toastify-container" toastClassName="toastify-toast" />
-        <ErrorBoundary>
-          <Header
-            isAuthenticated={isAuthenticated}
-            isAdmin={isAdmin}
-            currentLocale={currentLocale}
-            ribbonEnv={ribbonEnv}
-            isInProduction={isInProduction}
-            isOpenAPIEnabled={isOpenAPIEnabled}
-          />
-        </ErrorBoundary>
-        <div className="container-fluid view-container" id="app-view-container">
-          <Card className="jh-card">
-            <ErrorBoundary>
-              <AppRoutes />
-            </ErrorBoundary>
-          </Card>
-          <Footer />
-        </div>
-      </div>
-    </BrowserRouter>
-  );
+    const paddingTop = '60px';
+    return (
+        <BrowserRouter basename={baseHref}>
+            <div className="app-container" style={{ paddingTop }}>
+                <ToastContainer position="top-left" className="toastify-container" toastClassName="toastify-toast" />
+                <ErrorBoundary>
+                    <Header
+                        isAuthenticated={isAuthenticated}
+                        isAdmin={isAdmin}
+                        currentLocale={currentLocale}
+                        ribbonEnv={ribbonEnv}
+                        isInProduction={isInProduction}
+                        isOpenAPIEnabled={isOpenAPIEnabled}
+                    />
+                </ErrorBoundary>
+                <div className="container-fluid view-container" id="app-view-container">
+                    <Card className="jh-card">
+                        <ErrorBoundary>
+                            <AppRoutes />
+                        </ErrorBoundary>
+                    </Card>
+                    <Footer />
+                </div>
+            </div>
+        </BrowserRouter>
+    );
 };
 
 export default App;

@@ -11,14 +11,14 @@ import userManagement from './user-management';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 const rootReducer: ReducersMapObject = {
-  authentication,
-  locale,
-  applicationProfile,
-  administration,
-  userManagement,
-  loadingBar,
-  /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
-  ...entitiesReducers,
+    authentication,
+    locale,
+    applicationProfile,
+    administration,
+    userManagement,
+    loadingBar,
+    /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
+    ...entitiesReducers,
 };
 
 export default rootReducer;

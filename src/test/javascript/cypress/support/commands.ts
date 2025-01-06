@@ -43,41 +43,41 @@ export const classInvalid = 'is-invalid';
 export const classValid = 'is-valid';
 
 Cypress.Commands.add('authenticatedRequest', data => {
-  return cy.getCookie('XSRF-TOKEN').then(csrfCookie => {
-    return cy.request({
-      ...data,
-      headers: {
-        ...data.headers,
-        'X-XSRF-TOKEN': csrfCookie?.value,
-      },
+    return cy.getCookie('XSRF-TOKEN').then(csrfCookie => {
+        return cy.request({
+            ...data,
+            headers: {
+                ...data.headers,
+                'X-XSRF-TOKEN': csrfCookie?.value,
+            },
+        });
     });
-  });
 });
 
 Cypress.Commands.add('login', (username: string, password: string) => {
-  cy.session(
-    [username, password],
-    () => {
-      cy.getOauth2Data();
-      cy.get('@oauth2Data').then(oauth2Data => {
-        cy.oauthLogin(oauth2Data, username, password);
-      });
-    },
-    {
-      validate() {
-        cy.authenticatedRequest({ url: '/api/account' }).its('status').should('eq', 200);
-      },
-    },
-  );
+    cy.session(
+        [username, password],
+        () => {
+            cy.getOauth2Data();
+            cy.get('@oauth2Data').then(oauth2Data => {
+                cy.oauthLogin(oauth2Data, username, password);
+            });
+        },
+        {
+            validate() {
+                cy.authenticatedRequest({ url: '/api/account' }).its('status').should('eq', 200);
+            },
+        },
+    );
 });
 
 declare global {
-  namespace Cypress {
-    interface Chainable {
-      authenticatedRequest(data): Cypress.Chainable;
-      login(username: string, password: string): Cypress.Chainable;
+    namespace Cypress {
+        interface Chainable {
+            authenticatedRequest(data): Cypress.Chainable;
+            login(username: string, password: string): Cypress.Chainable;
+        }
     }
-  }
 }
 
 import 'cypress-audit/commands';

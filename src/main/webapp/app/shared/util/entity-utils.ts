@@ -9,9 +9,9 @@ import { IPaginationBaseState, ISortBaseState } from 'react-jhipster';
  * @param entity Object to clean.
  */
 export const cleanEntity = entity => {
-  const keysToKeep = Object.keys(entity).filter(k => !(entity[k] instanceof Object) || (entity[k].id !== '' && entity[k].id !== -1));
+    const keysToKeep = Object.keys(entity).filter(k => !(entity[k] instanceof Object) || (entity[k].id !== '' && entity[k].id !== -1));
 
-  return pick(entity, keysToKeep);
+    return pick(entity, keysToKeep);
 };
 
 /**
@@ -23,24 +23,24 @@ export const cleanEntity = entity => {
 export const mapIdList = (idList: ReadonlyArray<any>) => idList.filter((id: any) => id !== '').map((id: any) => ({ id }));
 
 export const overrideSortStateWithQueryParams = (paginationBaseState: ISortBaseState, locationSearch: string) => {
-  const params = new URLSearchParams(locationSearch);
-  const sort = params.get('sort');
-  if (sort) {
-    const sortSplit = sort.split(',');
-    paginationBaseState.sort = sortSplit[0];
-    paginationBaseState.order = sortSplit[1];
-  }
-  return paginationBaseState;
+    const params = new URLSearchParams(locationSearch);
+    const sort = params.get('sort');
+    if (sort) {
+        const sortSplit = sort.split(',');
+        paginationBaseState.sort = sortSplit[0];
+        paginationBaseState.order = sortSplit[1];
+    }
+    return paginationBaseState;
 };
 
 export const overridePaginationStateWithQueryParams = (paginationBaseState: IPaginationBaseState, locationSearch: string) => {
-  const sortedPaginationState: IPaginationBaseState = <IPaginationBaseState>(
-    overrideSortStateWithQueryParams(paginationBaseState, locationSearch)
-  );
-  const params = new URLSearchParams(locationSearch);
-  const page = params.get('page');
-  if (page) {
-    sortedPaginationState.activePage = +page;
-  }
-  return sortedPaginationState;
+    const sortedPaginationState: IPaginationBaseState = <IPaginationBaseState>(
+        overrideSortStateWithQueryParams(paginationBaseState, locationSearch)
+    );
+    const params = new URLSearchParams(locationSearch);
+    const page = params.get('page');
+    if (page) {
+        sortedPaginationState.activePage = +page;
+    }
+    return sortedPaginationState;
 };
