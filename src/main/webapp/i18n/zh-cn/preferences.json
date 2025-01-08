@@ -1,0 +1,27 @@
+{
+    "twentyOnePointsApp": {
+        "preferences": {
+            "home": {
+                "title": "Preferences",
+                "refreshListLabel": "Refresh list",
+                "createLabel": "创建新 Preferences",
+                "createOrEditLabel": "创建或编辑 Preferences",
+                "search": "查找 Preferences",
+                "notFound": "No Preferences found"
+            },
+            "created": "Preferences {{ param }} 创建成功",
+            "updated": "Preferences {{ param }} 更新成功",
+            "deleted": "Preferences {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Preferences {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Preferences"
+            },
+            "id": "ID",
+            "weeklyGoal": "Weekly Goal",
+            "weightUnits": "Weight Units",
+            "user": "User"
+        }
+    }
+}

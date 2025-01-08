@@ -1,0 +1,40 @@
+entity Points {
+  date LocalDate required
+  exercise Integer
+  meals Integer
+  alcohol Integer
+  notes String maxlength(140)
+}
+
+entity Weight {
+  timestamp ZonedDateTime required
+  weight Double required
+}
+
+entity BloodPressure {
+  timestamp ZonedDateTime required
+  systolic Integer required
+  diastolic Integer required
+}
+
+enum Units {
+  KG,
+  LB
+}
+
+entity Preferences {
+  weeklyGoal Integer required min(10) max(21)
+  weightUnits Units required
+}
+
+relationship ManyToOne {
+  Points{user(login)} to User with builtInEntity
+  Weight{user(login)} to User with builtInEntity
+  BloodPressure{user(login)} to User with builtInEntity
+}
+
+relationship OneToOne {
+  Preferences{user(login)} to User with builtInEntity
+}
+
+paginate Points, Weight, BloodPressure with infinite-scroll

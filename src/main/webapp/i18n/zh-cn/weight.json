@@ -1,0 +1,27 @@
+{
+    "twentyOnePointsApp": {
+        "weight": {
+            "home": {
+                "title": "Weights",
+                "refreshListLabel": "Refresh list",
+                "createLabel": "创建新 Weight",
+                "createOrEditLabel": "创建或编辑 Weight",
+                "search": "查找 Weight",
+                "notFound": "No Weights found"
+            },
+            "created": "Weight {{ param }} 创建成功",
+            "updated": "Weight {{ param }} 更新成功",
+            "deleted": "Weight {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Weight {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Weight"
+            },
+            "id": "ID",
+            "timestamp": "Timestamp",
+            "weight": "Weight",
+            "user": "User"
+        }
+    }
+}

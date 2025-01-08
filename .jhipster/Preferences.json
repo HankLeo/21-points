@@ -1,0 +1,32 @@
+{
+    "annotations": {
+        "changelogDate": "20250108153607"
+    },
+    "applications": "*",
+    "fields": [
+        {
+            "fieldName": "weeklyGoal",
+            "fieldType": "Integer",
+            "fieldValidateRules": ["required", "min", "max"],
+            "fieldValidateRulesMax": "21",
+            "fieldValidateRulesMin": "10"
+        },
+        {
+            "fieldName": "weightUnits",
+            "fieldType": "Units",
+            "fieldValidateRules": ["required"],
+            "fieldValues": "KG,LB"
+        }
+    ],
+    "name": "Preferences",
+    "relationships": [
+        {
+            "otherEntityField": "login",
+            "otherEntityName": "user",
+            "relationshipName": "user",
+            "relationshipSide": "left",
+            "relationshipType": "one-to-one",
+            "relationshipWithBuiltInEntity": true
+        }
+    ]
+}

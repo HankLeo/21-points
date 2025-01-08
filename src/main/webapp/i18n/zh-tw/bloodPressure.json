@@ -1,0 +1,28 @@
+{
+    "twentyOnePointsApp": {
+        "bloodPressure": {
+            "home": {
+                "title": "Blood Pressures",
+                "refreshListLabel": "Refresh list",
+                "createLabel": "建立一筆新的 Blood Pressure",
+                "createOrEditLabel": "建立或編輯 Blood Pressure",
+                "search": "搜尋 Blood Pressure",
+                "notFound": "No Blood Pressures found"
+            },
+            "created": "新的 Blood Pressure 建立成功，識別碼為 {{ param }}",
+            "updated": "識別碼為 {{ param }} 的 Blood Pressure 更新成功",
+            "deleted": "識別碼為 {{ param }} 的 Blood Pressure 刪除成功",
+            "delete": {
+                "question": "您確定要刪除 Blood Pressure {{ id }} 嗎?"
+            },
+            "detail": {
+                "title": "Blood Pressure"
+            },
+            "id": "ID",
+            "timestamp": "Timestamp",
+            "systolic": "Systolic",
+            "diastolic": "Diastolic",
+            "user": "User"
+        }
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "annotations": {
+        "changelogDate": "20250108153604"
+    },
+    "applications": "*",
+    "fields": [
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "exercise",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "meals",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "alcohol",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "notes",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": "140"
+        }
+    ],
+    "name": "Points",
+    "pagination": "infinite-scroll",
+    "relationships": [
+        {
+            "otherEntityField": "login",
+            "otherEntityName": "user",
+            "relationshipName": "user",
+            "relationshipSide": "left",
+            "relationshipType": "many-to-one",
+            "relationshipWithBuiltInEntity": true
+        }
+    ]
+}

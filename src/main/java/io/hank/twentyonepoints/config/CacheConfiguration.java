@@ -18,7 +18,6 @@ import org.springframework.boot.info.BuildProperties;
 import org.springframework.boot.info.GitProperties;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.KeyGenerator;
-import org.springframework.context.annotation.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import tech.jhipster.config.JHipsterProperties;
@@ -83,6 +82,10 @@ public class CacheConfiguration {
             createCache(cm, io.hank.twentyonepoints.domain.User.class.getName(), jcacheConfiguration);
             createCache(cm, io.hank.twentyonepoints.domain.Authority.class.getName(), jcacheConfiguration);
             createCache(cm, io.hank.twentyonepoints.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            createCache(cm, io.hank.twentyonepoints.domain.Points.class.getName(), jcacheConfiguration);
+            createCache(cm, io.hank.twentyonepoints.domain.Weight.class.getName(), jcacheConfiguration);
+            createCache(cm, io.hank.twentyonepoints.domain.BloodPressure.class.getName(), jcacheConfiguration);
+            createCache(cm, io.hank.twentyonepoints.domain.Preferences.class.getName(), jcacheConfiguration);
             // jhipster-needle-redis-add-entry
         };
     }

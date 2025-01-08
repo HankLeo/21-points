@@ -1,0 +1,30 @@
+{
+    "twentyOnePointsApp": {
+        "points": {
+            "home": {
+                "title": "Points",
+                "refreshListLabel": "Refresh list",
+                "createLabel": "建立一筆新的 Points",
+                "createOrEditLabel": "建立或編輯 Points",
+                "search": "搜尋 Points",
+                "notFound": "No Points found"
+            },
+            "created": "新的 Points 建立成功，識別碼為 {{ param }}",
+            "updated": "識別碼為 {{ param }} 的 Points 更新成功",
+            "deleted": "識別碼為 {{ param }} 的 Points 刪除成功",
+            "delete": {
+                "question": "您確定要刪除 Points {{ id }} 嗎?"
+            },
+            "detail": {
+                "title": "Points"
+            },
+            "id": "ID",
+            "date": "Date",
+            "exercise": "Exercise",
+            "meals": "Meals",
+            "alcohol": "Alcohol",
+            "notes": "Notes",
+            "user": "User"
+        }
+    }
+}
